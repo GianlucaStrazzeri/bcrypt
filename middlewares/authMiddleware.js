@@ -4,6 +4,15 @@
 const {sessionVariable}=require ("../app.js");
 const jwt=require("jsonwebtoken");
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 'd5q-£=5Lgw10WqDEm1AW~g]+<xI!7,l(YI';
+const someOtherPlaintextPassword = 'not_bacon';
+
+bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+  // Store hash in your password DB.
+});
+
 //generación de token
 const generarToken=function generateToken(user) {
     return jwt.sign({ user: user.id }, 'd5q-£=5Lgw10WqDEm1AW~g]+<xI!7,l(YI', {
